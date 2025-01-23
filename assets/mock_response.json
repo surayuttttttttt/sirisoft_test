@@ -1,0 +1,22 @@
+
+{"time": {
+    "updated": "Jan 23, 2025 18:55:25 UTC",
+    "updatedISO": "2025-01-23T18:55:25+00:00",
+    "updateduk": "Jan 23, 2025 at 18:55 GMT"
+  },
+  "disclaimer": "This data was produced from the CoinDesk Bitcoin Price Index (USD). Non-USD currency data converted using hourly conversion rate from openexchangerates.org",
+  "bpi": {
+    "USD": {
+      "code": "USD",
+      "rate": "105,226.323",
+      "description": "United States Dollar",
+      "rate_float": 105226.3233
+    },
+    "THB": {
+      "code": "THB",
+      "rate": "3,631,623.484",
+      "description": "Thailand Baht",
+      "rate_float": 3631623.4836
+    }
+  }
+}
