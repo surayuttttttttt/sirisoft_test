@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sirisoft_test/ui_helper.dart';
 import 'package:http/http.dart' as http;
 import 'package:sirisoft_test/model.dart';
 import 'package:intl/intl.dart';
@@ -75,16 +74,16 @@ class BitCoinController extends GetxController {
   mapIcon(String currency) {
     if (currency == 'THB') {
       return Image.asset(
-          width: 40,
-          height: 20,
-          'icons/currency/THB.png',
-          package: 'currency_icons');
+        width: 40,
+        height: 22,
+        'assets/images/thb_flag.png',
+      );
     } else if (currency == 'USD') {
       return Image.asset(
-          width: 40,
-          height: 20,
-          'icons/currency/USD.png',
-          package: 'currency_icons');
+        width: 40,
+        height: 20,
+        'assets/images/usd_flag.png',
+      );
     }
   }
 

@@ -140,7 +140,7 @@ class _MainScreenState extends State<MainScreen> {
 
   Widget buildChartWidget() {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.65,
+      height: MediaQuery.of(context).size.height * 0.4,
       child: GetBuilder<BitCoinController>(
         builder: (context) => SizedBox(
           child: Card(
@@ -253,6 +253,71 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
+  Widget buildHistory() {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.20,
+      child: Card(
+        elevation: 8,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        color: const Color.fromARGB(255, 255, 255, 255),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              Text(
+                'Price updated history',
+                style: customTextStyle.textStyle.copyWith(fontSize: 14),
+              ),
+              Obx(() => Expanded(
+                    child: Scrollbar(
+                      thumbVisibility: true,
+                      child: ListView(
+                        shrinkWrap: true,
+                        children: bitCoinController.currentCurrency == 'THB'
+                            ? bitCoinController.historyTHB.entries
+                                .toList()
+                                .reversed
+                                .map(
+                                (entry) {
+                                  return Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      '${bitCoinController.formatDate(entry.key)}: ${bitCoinController.formatNumber(entry.value)} \$',
+                                      style: customTextStyle.textStyle.copyWith(
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ).toList()
+                            : bitCoinController.historyUSD.entries
+                                .toList()
+                                .reversed
+                                .map(
+                                (entry) {
+                                  return Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      '${bitCoinController.formatDate(entry.key)}: ${bitCoinController.formatNumber(entry.value)} \$',
+                                      style: customTextStyle.textStyle.copyWith(
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ).toList(),
+                      ),
+                    ),
+                  )),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget buildErrorWidget() {
     return Center(
       child: Column(
@@ -284,10 +349,7 @@ class _MainScreenState extends State<MainScreen> {
       child: ListView(
         shrinkWrap: true,
         physics: ScrollPhysics(),
-        children: [
-          buildTopWidget(),
-          buildChartWidget(),
-        ],
+        children: [buildTopWidget(), buildChartWidget(), buildHistory()],
       ),
     );
   }

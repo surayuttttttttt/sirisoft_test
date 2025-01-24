@@ -10,4 +10,4 @@ An assignment using Flutter framework
 # Includes
  - Unit Testing 
 
-![Alt text](/assets/preview.gif)
+![Alt text](/assets/preview_gif.gif)
